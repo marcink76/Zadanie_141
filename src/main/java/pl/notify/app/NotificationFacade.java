@@ -3,34 +3,28 @@ package pl.notify.app;
 import org.springframework.stereotype.Component;
 import pl.notify.logger.NotifyLogger;
 import pl.notify.model.Notification;
-import pl.notify.reader.ConsoleNotificationReader;
-import pl.notify.reader.FileNotificationReader;
-import pl.notify.sender.EmailNotificationSender;
-import pl.notify.sender.SmsNotificationSender;
+import pl.notify.reader.NotificationReader;
+import pl.notify.sender.NotificationSender;
 
 import java.io.IOException;
 import java.util.List;
 
 @Component
 public class NotificationFacade {
-    private FileNotificationReader reader;
-    private EmailNotificationSender sender;
+    private NotificationReader reader;
+    private NotificationSender sender;
     private NotifyLogger logger;
-    private SmsNotificationSender smsSender;
-    private ConsoleNotificationReader consReader;
 
-    public NotificationFacade(FileNotificationReader reader, EmailNotificationSender sender, NotifyLogger logger, SmsNotificationSender smsSender, ConsoleNotificationReader consReader) {
+    public NotificationFacade(NotificationReader reader, NotificationSender sender, NotifyLogger logger) {
         this.reader = reader;
         this.sender = sender;
         this.logger = logger;
-        this.smsSender = smsSender;
-        this.consReader = consReader;
     }
 
     public void sendNotifications() throws IOException {
-        List<Notification> notifications = consReader.getNotifications();
+        List<Notification> notifications = reader.getNotifications();
         for (Notification notification : notifications) {
-            smsSender.send(notification);
+            sender.send(notification);
             logger.log(notification.toString());
         }
     }

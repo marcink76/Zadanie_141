@@ -2,3 +2,6 @@ LOG INFO 1509300049834 Notification{username='jan', email='jan@kowalski.pl', tel
 LOG INFO 1509300049836 Notification{username='kasia', email='kasia@kowalska.pl', telephone='2343454564', content='Nowa pralka już czeka'}
 LOG INFO 1509300235667 Notification{username='marcin', email='asfs', telephone='602392012', content='To jest wiadomośc'}
 LOG INFO 1509300908981 Notification{username='Narcin', email='codsf', telephone='59454435', content='co to jest ?'}
+LOG INFO 1509302660900 Notification{username='', email='kh', telephone='g', content='f'}
+LOG INFO 1509302660900 Notification{username='f', email='f', telephone='g', content='g'}
+LOG INFO 1509362257304 Notification{username='hjgj', email='kjl', telephone='4567', content='123'}

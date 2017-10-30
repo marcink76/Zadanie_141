@@ -4,6 +4,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pl.notify.logger.FileLogger;
 import pl.notify.reader.ConsoleNotificationReader;
 import pl.notify.reader.FileNotificationReader;
+import pl.notify.reader.NotificationReader;
 import pl.notify.sender.EmailNotificationSender;
 import pl.notify.sender.SmsNotificationSender;
 
@@ -22,7 +23,7 @@ public class NotificationApplication {
 
 
         FileLogger logger = new FileLogger();
-        NotificationFacade facade = new NotificationFacade(reader, sender, logger, smsSender, consReader);
+        NotificationFacade facade = new NotificationFacade((NotificationReader) reader, sender, logger);
         try {
             facade.sendNotifications();
         } catch (IOException e) {

@@ -1,5 +1,7 @@
 package pl.notify.reader;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import pl.notify.model.Notification;
 
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 @Component
+@Primary
 public class ConsoleNotificationReader implements NotificationReader{
     @Override
     public List<Notification> getNotifications() {
